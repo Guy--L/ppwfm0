@@ -68,10 +68,11 @@ td, th {
 # Technical Strategy
 
 - Use API layers to leverage existing database design in new applications
-- Use GraphQL to integrate apps across all databases
+
 - Flexibly adapt to new features as customers demand dev
 - Listen to and write down use cases from internal experts
 - Prioritize and prune dev to match business goals
+- "20 questions" approach to feature selection
 
 ---
 
@@ -86,7 +87,7 @@ td, th {
 
 ---
 
-## Appendix
+## Appendix for API adoption
 
 <style scoped>
 table {
@@ -108,3 +109,7 @@ td, th {
 | Real-time data with subscriptions     | ✅       | ❌ (requires separate setup)           |
 | Minimal overfetch/underfetch          | ✅       | ❌                                     |
 | Easier client-side flexibility        | ✅       | ❌                                     |
+
+---
+
+Thank you.
