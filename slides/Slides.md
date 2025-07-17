@@ -16,192 +16,95 @@ July 17, 2025
 
 - Speed to Revenue
 - Remove Implementation Bottlenecks per Customer
-- Manage Change
+- Respond to Demand
 <!-- Can have multiple on a slide -->
 
 ---
 
+
 # Status Quo
 
-- Many customers for many years
-- Proven track record
-- Years of experience has led to exquisite specializaton
--
-
----
-
-# Solution Approach
-
-- Develop a data-driven model using machine learning to identify malaria parasites in blood samples from digital images.
-- Compare various machine learning algorithms to find the most effective solution.
-
----
-
-# Datasets Available
-
-- **Publicly Available Datasets**: Utilization of open-source datasets of blood smear images that are annotated with malaria parasite presence.
-    * MP-IDB: The Malaria Parasite Image Database for Image Processing and Analysis
-    * MalariaSD: Malaria-Infected Cell Images dataset (Charania & Mehendale)
-- **Our Dataset**: 24958 training, 2600 testing images evenly split between un/infected classes
-- **Partnership Collections**: Collaboration with healthcare providers for real-world data to enhance model training.
-
----
-
-# Proposed Model Solution
-
-- Initial trials focus on Convolutional Neural Networks (CNN) due to their success in image recognition tasks.
-- Feature engineering to improve model sensitivity to parasite indicators.
-- Model selection will ultimately be based on the best recall
-
----
-
-# Final Model Solution
-
-- A refined CNN model showcasing superior performance metrics compared to traditional microscopy.
-- Demonstration of model scalability and adaptability to different microscopy settings.
-- **Final Model**: A deep CNN with LeakyReLU activation, dropout, batch normalization, and a softmax output layer, optimized with Adam. Achieves a test accuracy of 98.42%, with precision, recall, and F1-scores near or above 0.98.
+- Many customers in production already
+- Databases support current production and are stable
+- Years of experience supporting customers has led to exquisite specialization
+- Implementation workflow varies from configuration to development
+- Setting values in database records by hand
 
 
 ---
 
-# Proposed Business Solution
+# Database Overview (approximate)
 
-- Implementation of the model in diagnostic devices for use in clinics and remote locations.
-- Partnership with health organizations for model deployment and training.
+<style scoped>
+table {
+  font-size: 0.75em;
+  line-height: 1.1;
+  margin: 0 auto;
+}
+td, th {
+  padding: 4px 8px;
+}
+</style>
 
----
-
-# Executing Business Solution
-
-- **Pilot Program**: Launch in regions with high malaria incidence to measure impact.
-- **Feedback Loop**: Incorporate field feedback to refine the model and deployment strategy.
-
----
-
-# Recommendations for Implementation
-
-- **Validation & Integration**
-- **Stakeholder Actionables**
-- **Benefits & Costs**
-- **Risks & Further Analysis**
-
-<!-- ::: notes
-Validate extensively against existing methods before real-world clinical deployment; integrate with health record systems and workflows.
-
-Secure pilot testing partnerships, address data privacy and ethics, and train healthcare professionals.
-
-Reduced diagnostic time, increased accuracy, and wider access, with costs involving deployment, maintenance, and training. Expected to significantly lower economic burdens from delayed or incorrect diagnoses.
-
-Address potential model biases, need for updates, and ensure user trust. Monitor real-world performance, enhance model interpretability, and explore applicability to other diseases.
-:::
--->
----
-
-# Executive Summary
-
-- **Objective**: Enhance malaria detection using data science to improve diagnosis speed and accuracy, ultimately saving lives.
-- **Approach**: Utilize machine learning models to analyze blood sample images for faster, more accurate detection.
-- **Key Findings**: Our proposed model significantly outperforms traditional diagnostic methods in speed and accuracy.
-- **Recommendations**: Implement the model in pilot regions with high malaria prevalence to assess real-world impact.
+| Database           | Tables |
+|-------------------|--------|
+| Portal             | 98     |
+| CalloffPortal      | 89     |
+| TwilioIntegration  | 70     |
+| RealResponse       | 52     |
+| DailyLog           | 27     |
+| APIIntegration     | 20     |
+| CMSIdentity        | 12     |
+| DataSubmit         | 12     |
+| MobileIntegration  | 9      |
+| CustomImportExport | 8      |
+| SFTPIntegration    | 8      |
+| WCTPIntegration    | 6      |
+| EmailClient        | 5      |
+| **Total**          | **416**|
 
 ---
 
-# Risks & Challenges
+# Technical Strategy
 
-- **Data Quality and Availability**: Ensuring high-quality, diverse datasets for model training.
-- **Implementation**: Challenges in deploying and integrating the solution in existing healthcare infrastructures.
-- **Adaptability**: Keeping the model updated with evolving malaria strains and resistance patterns.
-
----
-
-# Thank You
-
-Thank you for your attention and interest in improving malaria detection through data science. Your support can make a significant difference.
+- Use API layers to leverage existing database design in new applications
+- Use GraphQL to integrate apps across all databases
+- Flexibly adapt to new features as customers demand dev
+- Listen to and write down use cases from internal experts
+- Prioritize and prune dev to match business goals
 
 ---
 
-# Appendix
+# Tactics
+
+- AI-based development is required
+- Bring software best practices to AI
+- Unit testing ensures correctness to business
+- Combined AI and best practices allow velocity and flexibility
+- Tighten the user to dev cycle
+- Catch teams up to experts
 
 ---
 
-### Comparing all models
+## Appendix
 
-| Model Description      | Precision | Recall | F1-Score | Accuracy |
-|------------------------|-----------|--------|----------|----------|
-| Base                   | 0.98      | 0.98   | 0.98     | 0.98     |
-| 1 new layers           | 0.98      | 0.98   | 0.98     | 0.98     |
-| 2 batch normalize      | 0.98      | 0.98   | 0.98     | 0.98     |
-| 3 augmentation         | 0.97      | 0.97   | 0.97     | 0.97     |
-| 4 augmentation++       | 0.98      | 0.98   | 0.98     | 0.98     |
-| VGG16                  | 0.95      | 0.95   | 0.95     | 0.95     |
+<style scoped>
+table {
+  font-size: 0.8em;
+  line-height: 1.1;
+  margin: 0 auto;
+}
+td, th {
+  padding: 4px 8px;
+}
+</style>
 
----
-## Best Two Models Comparison
-
-<div class="columns">
-<div>
-
-### Training for Model 1
-
-![h:400](./img/epoch1.png)
-
-</div>
-<div>
-
-### Training for Model 3
-
-![h:400](./img/epoch3.png)
-
-</div>
-</div>
-
----
-##  Accuracy Comparison in Validation Data
-
-```
-                            Model 1                          Model 3
-              precision recall f1-score        precision recall f1-score    support
-  uninfected       0.97   0.97     0.97             0.99   0.96     0.97       1300
- parasitical       0.97   0.97     0.97             0.96   0.99     0.98       1300
-
-    accuracy                       0.97                             0.98       2600
-   macro avg       0.97   0.97     0.97             0.98   0.98     0.98       2600
-weighted avg       0.97   0.97     0.97             0.98   0.98     0.98       2600
-
-```
-
----
-## Results Comparison
-
-<div class="columns">
-<div>
-
-### Model 1
-
-![h:400](./img/matrix1.png)
-
-</div>
-<div>
-
-### Model 3
-
-![h:400](./img/matrix.png)
-
-</div>
-</div>
-
----
-
-![contain](./img/parasitehistory.png)
-
----
-
-![contain](./img/parasite2020.png)
-
----
-
-## Author
-
-<i class="fa-brands fa-twitter"></i> Twitter:&emsp;&emsp;<a href="https://twitter.com/Guy__Lister" target="_blank">@Guy__Lister</a>
-<i class="fa-brands fa-linkedin"></i> LinkedIn:&ensp;&emsp;<a href="https://www.linkedin.com/in/guy-lister-coding-consultant/" target="_blank">guy-lister-coding-consultant</a>
-<i class="fa-brands fa-github"></i> GitHub:&emsp;&emsp;<a href="https://github.com/guy--l" target="_blank">Guy--L</a>
+| Feature                               | GraphQL | REST                                  |
+| ------------------------------------- | ------- | ------------------------------------- |
+| Fetch specific fields                 | ✅       | ❌ (usually returns whole object)      |
+| Batch multiple resource requests      | ✅       | ❌ (multiple calls needed)             |
+| Strongly typed schema & introspection | ✅       | ❌ (optional OpenAPI)                  |
+| Single evolving endpoint              | ✅       | ❌ (many endpoints, versioning issues) |
+| Real-time data with subscriptions     | ✅       | ❌ (requires separate setup)           |
+| Minimal overfetch/underfetch          | ✅       | ❌                                     |
+| Easier client-side flexibility        | ✅       | ❌                                     |
