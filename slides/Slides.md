@@ -1,29 +1,32 @@
 ---
 marp: true
 theme: custom-default
-footer: 'https://guy--l.github.io/detect-malaria'
+footer: '2025 PPWFM Confidential'
 ---
 
-# Improving Malaria Detection with Data Science
+# Productivity Pilot
 Guy Lister
-MIT ADSP Jan 24 --- April 13, 2024
-![bg right contain](./img/speciescycles.jpg)
+July 17, 2025
+![bg right contain](./img/ascendbars.png)
 
 ---
 
 <!-- Speaker Notes -->
-# Problem Definition
+# Business Drivers
 
-- Malaria is a major global health issue with over 200 million cases annually, leading to substantial morbidity and mortality.
-- Current detection methods are slow and require specialized training, hindering timely diagnosis and treatment.
+- Speed to Revenue
+- Remove Implementation Bottlenecks per Customer
+- Manage Change
 <!-- Can have multiple on a slide -->
 
 ---
 
-# Problem to Solve
+# Status Quo
 
-- **Need for Speed and Accuracy**: Improve the speed and accuracy of malaria detection to facilitate earlier and more effective treatment.
-- **Accessibility**: Enhance the availability of reliable diagnostic methods in resource-limited settings.
+- Many customers for many years
+- Proven track record
+- Years of experience has led to exquisite specializaton
+-
 
 ---
 
@@ -77,7 +80,7 @@ MIT ADSP Jan 24 --- April 13, 2024
 
 # Recommendations for Implementation
 
-- **Validation & Integration** 
+- **Validation & Integration**
 - **Stakeholder Actionables**
 - **Benefits & Costs**
 - **Risks & Further Analysis**
@@ -156,11 +159,11 @@ Thank you for your attention and interest in improving malaria detection through
 ##  Accuracy Comparison in Validation Data
 
 ```
-                            Model 1                          Model 3          
+                            Model 1                          Model 3
               precision recall f1-score        precision recall f1-score    support
   uninfected       0.97   0.97     0.97             0.99   0.96     0.97       1300
  parasitical       0.97   0.97     0.97             0.96   0.99     0.98       1300
-                                               
+
     accuracy                       0.97                             0.98       2600
    macro avg       0.97   0.97     0.97             0.98   0.98     0.98       2600
 weighted avg       0.97   0.97     0.97             0.98   0.98     0.98       2600
@@ -200,5 +203,5 @@ weighted avg       0.97   0.97     0.97             0.98   0.98     0.98       2
 ## Author
 
 <i class="fa-brands fa-twitter"></i> Twitter:&emsp;&emsp;<a href="https://twitter.com/Guy__Lister" target="_blank">@Guy__Lister</a>
-<i class="fa-brands fa-linkedin"></i> LinkedIn:&ensp;&emsp;<a href="https://www.linkedin.com/in/guy-lister-coding-consultant/" target="_blank">guy-lister-coding-consultant</a> 
+<i class="fa-brands fa-linkedin"></i> LinkedIn:&ensp;&emsp;<a href="https://www.linkedin.com/in/guy-lister-coding-consultant/" target="_blank">guy-lister-coding-consultant</a>
 <i class="fa-brands fa-github"></i> GitHub:&emsp;&emsp;<a href="https://github.com/guy--l" target="_blank">Guy--L</a>
